@@ -51,8 +51,9 @@ if __name__ == '__main__':
         transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
     ])
 
-    model = pretrain.ViT(name='B_16', num_classes=10, image_size=size, pretrained=pretrained)
-    
+    # model = pretrain.ViT(name='B_16', num_classes=10, image_size=size, pretrained=pretrained)
+    model = pretrain.resnet18()
+
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     model = nn.DataParallel(model)
 
